@@ -12,19 +12,20 @@ logger = logging.getLogger(__name__)
 
 # Constants
 NR_GRAPHQL_URL = "https://api.newrelic.com/graphql"
-
+DEFAULT_ACCOUNT_ID = os.getenv("NEW_RELIC_ACCOUNT_ID", "1892029")
 
 @mcp.tool()
-async def query_logs(query: str) -> str:
+async def query_logs(query: str, account_id: str = DEFAULT_ACCOUNT_ID) -> str:
     """Query New Relic logs using NRQL.
 
     Args:
         query: NRQL query string (e.g., "SELECT * FROM Transaction")
+        account_id: New Relic account ID (default from env var)
     """
     graphql_query = f"""
     {{
         actor {{
-            account(id: 1892029) {{
+            account(id: {account_id}) {{
                 nrql(query: "{query}") {{
                     results
                 }}

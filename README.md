@@ -8,6 +8,7 @@ A simple Model Context Protocol (MCP) server for querying New Relic logs using N
 - Detailed error logging
 - Easy integration with Claude Desktop
 - Human-readable output formatting
+- Configurable New Relic account ID
 
 ## Setup Instructions
 
@@ -51,12 +52,15 @@ uv pip install "mcp[cli]" httpx
 ```bash
 # On Unix/macOS
 export NEW_RELIC_API_KEY="your-api-key-here"
+export NEW_RELIC_ACCOUNT_ID="your-account-id-here"
 
 # On Windows (CMD)
 set NEW_RELIC_API_KEY=your-api-key-here
+set NEW_RELIC_ACCOUNT_ID=your-account-id-here
 
 # On Windows (PowerShell)
 $env:NEW_RELIC_API_KEY = "your-api-key-here"
+$env:NEW_RELIC_ACCOUNT_ID = "your-account-id-here"
 ```
 
 ### Claude Desktop Integration
@@ -79,7 +83,8 @@ Add the following configuration:
                 "newrelic_logs_server.py"
             ],
             "env": {
-                "NEW_RELIC_API_KEY": "your-api-key-here"
+                "NEW_RELIC_API_KEY": "your-api-key-here",
+                "NEW_RELIC_ACCOUNT_ID": "your-account-id-here"
             }
         }
     }
@@ -162,6 +167,7 @@ npx @modelcontextprotocol/inspector uv run newrelic_logs_server.py
 1. Set environment variables:
 ```bash
 export NEW_RELIC_API_KEY="your-api-key-here"
+export NEW_RELIC_ACCOUNT_ID="your-account-id-here"
 ```
 
 2. Run the server:
@@ -173,6 +179,7 @@ uv run newrelic_logs_server.py
 
 The server implements:
 - Single NRQL query tool
+- Configurable New Relic account ID
 - Comprehensive error handling
 - Detailed logging
 - Response formatting
