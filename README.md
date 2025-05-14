@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/ivlad003-mcp-newrelic-badge.png)](https://mseep.ai/app/ivlad003-mcp-newrelic)
+
 # New Relic MCP Server
 
 A simple Model Context Protocol (MCP) server for querying New Relic logs using NRQL queries. This server enables Large Language Models (LLMs) like Claude to interact with your New Relic data.
