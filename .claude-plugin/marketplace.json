@@ -1,0 +1,34 @@
+{
+  "name": "ivlad-plugins",
+  "owner": {
+    "name": "ivlad003"
+  },
+  "metadata": {
+    "description": "Collection of Claude Code plugins by ivlad003 — observability, DevOps, and developer productivity tools",
+    "version": "1.0.0",
+    "homepage": "https://github.com/ivlad003/plugins",
+    "pluginRoot": "./plugin"
+  },
+  "plugins": [
+    {
+      "name": "newrelic-observability",
+      "source": "./newrelic-observability",
+      "description": "Query and analyze New Relic observability data directly from Claude Code via REST API calls. Includes NRQL queries, entity search, alerts, deployments, infrastructure metrics, and incident investigation workflows.",
+      "version": "1.0.0",
+      "author": {
+        "name": "ivlad003"
+      },
+      "category": "devops",
+      "keywords": [
+        "newrelic",
+        "observability",
+        "monitoring",
+        "nrql",
+        "alerts",
+        "apm",
+        "incidents"
+      ],
+      "strict": true
+    }
+  ]
+}

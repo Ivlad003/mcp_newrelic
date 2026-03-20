@@ -1,0 +1,23 @@
+{
+  "name": "newrelic-observability",
+  "description": "Query and analyze New Relic observability data directly from Claude Code. Run NRQL queries, search entities, check alerts, view deployments, investigate incidents, and monitor infrastructure — all via direct REST API calls to New Relic's NerdGraph and REST v2 APIs. No MCP server or Python dependencies required.",
+  "version": "1.0.0",
+  "author": {
+    "name": "ivlad003"
+  },
+  "homepage": "https://github.com/ivlad003/plugins",
+  "repository": "https://github.com/ivlad003/plugins",
+  "license": "MIT",
+  "keywords": [
+    "newrelic",
+    "observability",
+    "monitoring",
+    "nrql",
+    "alerts",
+    "apm",
+    "infrastructure",
+    "logs",
+    "debugging",
+    "incidents"
+  ]
+}

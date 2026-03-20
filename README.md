@@ -1,10 +1,66 @@
 [![MseeP.ai Security Assessment Badge](https://mseep.net/pr/ivlad003-mcp-newrelic-badge.png)](https://mseep.ai/app/ivlad003-mcp-newrelic)
 
-# New Relic MCP Server
+# New Relic for Claude
 
-A simple Model Context Protocol (MCP) server for querying New Relic logs using NRQL queries. This server enables Large Language Models (LLMs) like Claude to interact with your New Relic data.
+Two ways to query New Relic observability data from Claude — choose what fits your setup.
 
-## Features
+| | MCP Server | Claude Code Plugin |
+|--|------------|-------------------|
+| **For** | Claude Desktop, any MCP client | Claude Code CLI |
+| **How** | Python MCP server process | Direct REST API calls via curl |
+| **Tools** | 1 (NRQL query) | 4 commands + 1 skill (12 ops) + 1 agent |
+| **Dependencies** | Python 3.13+, httpx, mcp, pydantic | None (curl only) |
+| **Install** | Configure MCP client | `/plugin marketplace add Ivlad003/plugins` |
+
+## Prerequisites
+
+- New Relic account and API key (starts with `NRAK-`)
+- Set environment variables:
+```bash
+export NEW_RELIC_API_KEY="your-api-key-here"
+export NEW_RELIC_ACCOUNT_ID="your-account-id-here"
+```
+
+---
+
+## Option 1: Claude Code Plugin (Recommended for Claude Code users)
+
+Install directly — no Python or MCP server needed:
+
+```bash
+/plugin marketplace add Ivlad003/plugins
+/plugin install newrelic-observability@ivlad-plugins
+```
+
+### What You Get
+
+**Slash Commands:**
+| Command | Description |
+|---------|-------------|
+| `/nr-query <NRQL>` | Run any NRQL query |
+| `/nr-alerts` | Check active alert violations |
+| `/nr-status` | Health overview of all monitored apps |
+| `/nr-investigate` | Full incident investigation with root cause analysis |
+
+**Skill (`newrelic-ops`)** — auto-activates on New Relic questions. 12 API operations covering NRQL queries, entity search, alerts, deployments, dashboards, infrastructure, and logs. Plus 3 investigation workflows.
+
+**Agent (`newrelic-investigator`)** — correlates alerts, errors, latency, deployments, and infrastructure to find incident root causes.
+
+### Usage
+
+```
+"What's the error rate for my-app?"
+"Show me the slowest endpoints"
+/nr-status
+/nr-query SELECT count(*) FROM Transaction FACET appName SINCE 1 hour ago
+/nr-investigate checkout is returning 500s
+```
+
+---
+
+## Option 2: MCP Server (For Claude Desktop and other MCP clients)
+
+### Features
 
 - Query New Relic logs and metrics using NRQL
 - Detailed error logging
