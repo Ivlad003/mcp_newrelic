@@ -86,7 +86,7 @@ Add the following configuration:
                 "--directory",
                 "/absolute/path/to/newrelic-mcp",
                 "run",
-                "newrelic_logs_server.py"
+                "app.py"
             ],
             "env": {
                 "NEW_RELIC_API_KEY": "your-api-key-here",
