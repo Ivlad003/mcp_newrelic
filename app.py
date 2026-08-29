@@ -3,7 +3,7 @@ import httpx
 from mcp.server.mcpserver import MCPServer
 import logging
 
-# Initialize FastMCP server
+# Initialize MCPServer
 mcp = MCPServer("newrelic-logs")
 
 # Configure logging
