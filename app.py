@@ -1,10 +1,10 @@
 import os
 import httpx
-from mcp.server.fastmcp import FastMCP
+from mcp.server.mcpserver import MCPServer
 import logging
 
 # Initialize FastMCP server
-mcp = FastMCP("newrelic-logs")
+mcp = MCPServer("newrelic-logs")
 
 # Configure logging
 logging.basicConfig(level=logging.DEBUG)
